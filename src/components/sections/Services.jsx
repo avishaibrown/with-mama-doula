@@ -1,37 +1,46 @@
-import { Heart, Shield, Users } from 'lucide-react'
 import { siteContent } from '../../data/content.js'
 
-const icons = {
-  heart: Heart,
-  users: Users,
-  shield: Shield,
-}
-
 function Services() {
+  const service = siteContent.services[0]
+  const movingItems = [...service.items, ...service.items]
+
   return (
     <section className="section" id="services">
       <div className="container">
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow">Doula support</span>
-            <h2>Pregnancy, birth, and postpartum care.</h2>
-          </div>
-          <p>Compassionate, continuous support through pregnancy, birth, and postpartum, so you feel informed, held, and supported every step of the way.</p>
+        <div className="section-heading section-heading-full">
+          <span className="eyebrow">{service.eyebrow}</span>
+          <h2>{service.title}</h2>
+          <p>{service.body}</p>
         </div>
-        <div className="card-grid">
-          {siteContent.services.map((service) => {
-            const Icon = icons[service.icon]
-            return (
-              <article className="card" key={service.title}>
-                <span className="card-icon" aria-hidden="true">
-                  <Icon size={22} />
-                </span>
-                <h3>{service.title}</h3>
-                <p>{service.body}</p>
+
+        <p className="support-intro">{service.intro}</p>
+
+        <div className="infinite-cards" aria-label="Supported birth settings and paths">
+          <div className="infinite-track">
+            {movingItems.map((item, index) => (
+              <article className="moving-card" key={`${item}-${index}`}>
+                <p>{item}</p>
               </article>
-            )
-          })}
+            ))}
+          </div>
+          <div className="infinite-track" aria-hidden="true">
+            {movingItems.map((item, index) => (
+              <article className="moving-card" key={`${item}-${index}-clone`}>
+                <p>{item}</p>
+              </article>
+            ))}
+          </div>
         </div>
+
+        <div className="support-fallback" aria-label="Supported birth settings and paths">
+          {service.items.map((item) => (
+            <span className="support-chip" key={item}>
+              {item}
+            </span>
+          ))}
+        </div>
+
+        <p className="support-note">{service.body}</p>
       </div>
     </section>
   )

@@ -1,12 +1,24 @@
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 import { siteContent } from '../../data/content.js'
 
 function Hero() {
   return (
     <section className="hero-section" id="top">
+      <picture className="hero-media">
+        <source
+          type="image/jpeg"
+          srcSet="/hero/hero-800.jpg 800w, /hero/hero-1200.jpg 1200w, /hero/hero-1600.jpg 1600w"
+          sizes="(max-width: 860px) 100vw, 100vw"
+        />
+        <img
+          src="/hero/hero-1600.jpg"
+          alt="A ceremonial birth ritual arranged on a pink woven mat with candles, flowers, and natural elements"
+          fetchPriority="high"
+          decoding="async"
+        />
+      </picture>
       <div className="container hero-grid">
         <div className="hero-copy">
-          <span className="eyebrow">{siteContent.hero.eyebrow}</span>
           <h1>{siteContent.hero.title}</h1>
           {Array.isArray(siteContent.hero.body) ? (
             siteContent.hero.body.map((p, i) => <p key={i}>{p}</p>)
@@ -21,18 +33,10 @@ function Hero() {
               View birth support package
             </a>
           </div>
+          <a className="hero-scroll" href="#philosophy" aria-label="Scroll to the next section">
+            <ChevronDown size={22} />
+          </a>
         </div>
-        <aside className="hero-card" aria-label="Care principles">
-          <span className="eyebrow">Care is</span>
-          <ul>
-            {siteContent.hero.highlights.map((item) => (
-              <li key={item}>
-                <CheckCircle2 size={20} aria-hidden="true" />
-                <p>{item}</p>
-              </li>
-            ))}
-          </ul>
-        </aside>
       </div>
     </section>
   )

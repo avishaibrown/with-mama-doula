@@ -14,43 +14,52 @@ export const siteContent = {
     { label: 'Contact', href: '#contact' },
   ],
   hero: {
-    eyebrow: 'WITH MAMA DOULA',
     title: 'Walking beside you as you step into motherhood',
     body: [
       'Evidence-informed doula support for pregnancy, birth and postpartum.',
       'Supporting women in Melbourne to feel safe, informed and deeply held throughout the transition into motherhood.'
     ],
-    highlights: [
-      'Primarily birth support, with pregnancy preparation and postpartum debriefing',
-      'Home, hospital, birth centre, planned caesarean, VBAC, and changing plans',
-      'Packages available, with sliding scale places by conversation',
-    ],
   },
   philosophy: {
-    eyebrow: 'Name and philosophy',
-    title: 'With Mama means being with the mother.',
-    quote: 'The doula\'s role is not to manage or direct labour, but to safeguard the environment so that a woman\'s own physiology, instincts, and innate power can lead the way.',
+    eyebrow: 'Why have me as your doula?',
+    title: 'Feel safe, calm and confident in pregnancy and birth',
+    intro: 'I provide continuous support in labour to increase your chance of:',
+    benefits: [
+      'Avoiding unnecessary interventions',
+      'Experiencing shorter labours',
+      'Feeling more satisfied with your birth experience',
+    ],
+    philosophyLabel: 'My Philosophy',
+    philosophyLead: "Inspired by Michel Odent's philosophy of 'para mama' - being with the mother.",
+    philosophyPoints: [
+      'The mother gives birth',
+      'The doula protects the conditions in which birth unfolds',
+    ],
     body: [
-      'Inspired by Michel Odent\'s philosophy of para mama, With Mama begins with a simple orientation: the mother gives birth. The doula protects the conditions in which birth unfolds.',
       'Dr. Michel Odent M.D. believed that those around the mother should protect her privacy, reduce stimulation, avoid directing or coaching, create safety, and remain quietly present.',
-      'When I am with you, my role is not to tell you how to birth or to take over your experience. It is to walk beside you with calm, steady presence, helping you feel safe, informed, and deeply supported as you discover your own way through birth. I am here to believe in you and advocate for your birth.',
+      'My role as a doula is not to manage or direct labour, but to safeguard the environment so that your own physiology, instincts, and innate power can lead the way.',
+      'This philosophy is at the heart of my practice.',
+      'When I am with you, my role is not to tell you which choices to make, how to give birth, or to take over your experience. It is to walk beside you with calm, steady presence, helping you feel safe, informed, and deeply supported as you discover your own way through birth. I am here to believe in you and your baby’s unique experience.',
     ],
   },
   services: [
     {
-      title: 'In pregnancy',
-      body: 'I offer space to explore what you are feeling, what you are hoping for, and what feels right for your birth and beyond. Together, we prepare in a way that feels steady and practical, while also holding the emotional transition into motherhood. Postpartum planning is included, so you feel more supported for what comes next.',
+      title: 'Who I work with',
+      eyebrow: 'Who I work with',
+      intro: 'I support women planning:',
+      body: 'However and wherever you choose to give birth, my role is to support you.',
       icon: 'heart',
-    },
-    {
-      title: 'Labour and birth',
-      body: 'I stay by your side throughout labour, offering continuous support wherever you choose to birth: at home, in hospital, or in a birth centre. I provide hands-on comfort techniques, emotional reassurance, and gentle guidance to help you feel informed, supported, and safe as your birth unfolds.',
-      icon: 'users',
-    },
-    {
-      title: 'Postpartum',
-      body: 'After birth, I offer a gentle space to reflect and debrief your experience. This is an opportunity to talk through your birth story, process what unfolded, and make sense of your thoughts and feelings in a supported way.',
-      icon: 'shield',
+      items: [
+        'Home birth',
+        'Hospital birth',
+        'Birth centre birth',
+        'VBAC',
+        'First babies',
+        'Subsequent births',
+        'Physiological birth',
+        'Medically supported birth',
+        'Planned C-section births',
+      ],
     },
   ],
   settings: {
