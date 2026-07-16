@@ -10,8 +10,8 @@
   --white: #fffaf0;
   --border: rgba(89, 52, 69, 0.16);
   --shadow: 0 22px 60px rgba(90, 62, 44, 0.1);
-  --heading: 'Bree Serif', Georgia, serif;
-  --body: 'Lora', Georgia, serif;
+  --heading: 'Cormorant Garamond', Georgia, serif;
+  --body: 'Avenir Next', 'Avenir', system-ui, sans-serif;
   --label: 'Montserrat', system-ui, sans-serif;
 
   color: var(--ink);
@@ -45,7 +45,7 @@ h1, h2, h3 {
   margin: 0;
 }
 
-h1 { font-size: clamp(3.8rem, 9vw, 8.8rem); max-width: 9ch; }
+h1 { font-size: clamp(2.2rem, min(5vw, 7vh), 5rem); max-width: 15ch; word-break: break-word; line-height: 1.05; }
 h2 { font-size: clamp(2.5rem, 5.8vw, 5.6rem); max-width: 10.5ch; }
 h3 { font-family: var(--label); font-size: 1.05rem; font-weight: 700; letter-spacing: 0.04em; line-height: 1.35; text-transform: uppercase; }
 
@@ -127,7 +127,9 @@ h3 { font-family: var(--label); font-size: 1.05rem; font-weight: 700; letter-spa
   background-position: center;
   background-size: cover;
   min-height: calc(100svh - 164px);
-  padding: 128px 0 82px;
+  padding: clamp(24px, 4vh, 80px) 0 clamp(24px, 4vh, 60px);
+  display: flex;
+  align-items: center;
 }
 
 .hero-grid {
@@ -420,7 +422,6 @@ blockquote {
   .nav-links { display: none; }
   .nav-inner { min-height: 132px; }
   .brand-logo { width: min(300px, 82vw); }
-  .hero-section { padding-top: 64px; }
   .hero-grid,
   .about-grid,
   .contact-grid,

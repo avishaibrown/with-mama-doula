@@ -14,9 +14,12 @@ export const siteContent = {
     { label: 'Contact', href: '#contact' },
   ],
   hero: {
-    eyebrow: 'Para mama. With the mother.',
-    title: 'The mother gives birth. The doula protects the conditions.',
-    body: 'With Mama doula offers birth support in South East Melbourne and beyond, grounded in obstetrician Dr. Michel Odent M.D. and his philosophy of para mama: being with the mother.',
+    eyebrow: 'WITH MAMA DOULA',
+    title: 'Walking beside you as you step into motherhood',
+    body: [
+      'Evidence-informed doula support for pregnancy, birth and postpartum.',
+      'Supporting women in Melbourne to feel safe, informed and deeply held throughout the transition into motherhood.'
+    ],
     highlights: [
       'Primarily birth support, with pregnancy preparation and postpartum debriefing',
       'Home, hospital, birth centre, planned caesarean, VBAC, and changing plans',

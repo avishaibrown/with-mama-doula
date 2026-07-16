@@ -8,10 +8,14 @@ function Hero() {
         <div className="hero-copy">
           <span className="eyebrow">{siteContent.hero.eyebrow}</span>
           <h1>{siteContent.hero.title}</h1>
-          <p>{siteContent.hero.body}</p>
+          {Array.isArray(siteContent.hero.body) ? (
+            siteContent.hero.body.map((p, i) => <p key={i}>{p}</p>)
+          ) : (
+            <p>{siteContent.hero.body}</p>
+          )}
           <div className="hero-actions" aria-label="Primary actions">
             <a className="button button-primary" href="#contact">
-              Start a conversation <ArrowRight size={18} />
+              Book a free discovery call <ArrowRight size={18} />
             </a>
             <a className="button button-secondary" href="#package">
               View birth support package
