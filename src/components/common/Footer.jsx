@@ -6,7 +6,10 @@ function Footer() {
       <div className="container footer-inner">
         <img className="footer-logo" src="/with-mama-logo.png" alt={siteContent.brand.name} />
         <p>Quiet birth and postpartum companionship. Inspired by para mama: being with the mother.</p>
-        <a href={`tel:${siteContent.brand.phone.replaceAll(' ', '')}`}>{siteContent.brand.phone}</a>
+        <div className="footer-contact">
+          <a href={`tel:${siteContent.brand.phone.replaceAll(' ', '')}`}>{siteContent.brand.phone}</a>
+          <a href={`mailto:${siteContent.brand.email}`}>{siteContent.brand.email}</a>
+        </div>
       </div>
     </footer>
   )

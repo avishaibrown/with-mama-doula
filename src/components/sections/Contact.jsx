@@ -1,67 +1,109 @@
-import { Mail, MapPin, Phone } from 'lucide-react'
-import { siteContent } from '../../data/content.js'
+import { useRef } from "react";
+import ShinyButton from "../common/ShinyButton.jsx";
 
 function Contact() {
+  const formRef = useRef(null);
+
+  const handleSubmit = (event) => {
+    const form = formRef.current;
+    if (!form) return;
+
+    const email = form.elements.namedItem("email");
+    const phone = form.elements.namedItem("phone");
+
+    if (
+      email instanceof HTMLInputElement &&
+      phone instanceof HTMLInputElement
+    ) {
+      const hasEmail = email.value.trim().length > 0;
+      const hasPhone = phone.value.trim().length > 0;
+
+      email.setCustomValidity("");
+      phone.setCustomValidity("");
+
+      if (!hasEmail && !hasPhone) {
+        const message =
+          "Please provide either an email address or a phone number.";
+        email.setCustomValidity(message);
+        phone.setCustomValidity(message);
+        email.reportValidity();
+        event.preventDefault();
+        return;
+      }
+    }
+  };
+
   return (
     <section className="section" id="contact">
-      <div className="container contact-grid">
-        <div className="contact-panel">
-          <span className="eyebrow">Contact</span>
-          <h2>Begin with a conversation.</h2>
-          <p>Share what season you are in, what kind of birth or postpartum support you are seeking, and what you already know you do not want.</p>
-          <ul className="contact-list">
-            <li>
-              <Mail size={18} aria-hidden="true" />
-              <a href={`mailto:${siteContent.brand.email}`}>{siteContent.brand.email}</a>
-            </li>
-            <li>
-              <Phone size={18} aria-hidden="true" />
-              <a href={`tel:${siteContent.brand.phone.replaceAll(' ', '')}`}>{siteContent.brand.phone}</a>
-            </li>
-            <li>
-              <MapPin size={18} aria-hidden="true" />
-              <span>{siteContent.brand.location}</span>
-            </li>
-          </ul>
+      <div className="container contact-layout">
+        <div className="contact-image-panel" aria-hidden="true">
+          <img
+            src="/contact.png"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
         </div>
-        <form className="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-          <div className="form-row">
-            <label htmlFor="name">Name</label>
-            <input id="name" name="name" type="text" autoComplete="name" required />
+
+        <div className="contact-content">
+          <div className="contact-intro">
+            <span className="eyebrow">Get in touch</span>
+            <h2>Let’s talk about your birth</h2>
+            <p>
+              Whether you have questions or would simply like to meet for a chat,
+              I'd love to hear from you.
+            </p>
           </div>
-          <div className="form-row">
-            <label htmlFor="email">Email</label>
-            <input id="email" name="email" type="email" autoComplete="email" required />
-          </div>
-          <div className="form-row split-row">
-            <div>
-              <label htmlFor="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" autoComplete="tel" />
+
+          <form
+            ref={formRef}
+            className="contact-form"
+            action="https://formspree.io/f/your-form-id"
+            method="POST"
+            onSubmit={handleSubmit}
+          >
+            <div className="form-row">
+              <label htmlFor="name">Your Name *</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autoComplete="name"
+                required
+                placeholder="Jane Smith"
+              />
             </div>
-            <div>
-              <label htmlFor="due-date">Due date or month</label>
-              <input id="due-date" name="due-date" type="text" />
+
+            <div className="form-row">
+              <label htmlFor="email">Email Address</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                placeholder="jane@example.com"
+              />
             </div>
-          </div>
-          <div className="form-row split-row">
-            <div>
-              <label htmlFor="suburb">Suburb / location</label>
-              <input id="suburb" name="suburb" type="text" />
+
+            <div className="form-row">
+              <label htmlFor="phone">Phone Number</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                autoComplete="tel"
+                placeholder="0400 000 000"
+              />
             </div>
-            <div>
-              <label htmlFor="setting">Planned birth setting</label>
-              <input id="setting" name="setting" type="text" />
-            </div>
-          </div>
-          <div className="form-row">
-            <label htmlFor="message">What would you like support with?</label>
-            <textarea id="message" name="message" required />
-          </div>
-          <button className="button button-primary" type="submit">Send enquiry</button>
-        </form>
+
+            <ShinyButton className="contact-submit" type="submit">
+              Send Enquiry
+            </ShinyButton>
+          </form>
+        </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

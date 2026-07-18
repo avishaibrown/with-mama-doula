@@ -2,6 +2,8 @@ import { ArrowRight, ChevronDown } from 'lucide-react'
 import { siteContent } from '../../data/content.js'
 
 function Hero() {
+  const heroWords = siteContent.hero.title.split(' ')
+
   return (
     <section className="hero-section" id="top">
       <picture className="hero-media">
@@ -13,13 +15,22 @@ function Hero() {
         <img
           src="/hero/hero-1600.jpg"
           alt="A ceremonial birth ritual arranged on a pink woven mat with candles, flowers, and natural elements"
-          fetchPriority="high"
           decoding="async"
         />
       </picture>
       <div className="container hero-grid">
         <div className="hero-copy">
-          <h1>{siteContent.hero.title}</h1>
+          <h1 className="hero-title" aria-label={siteContent.hero.title}>
+            {heroWords.map((word, index) => (
+              <span
+                className="hero-title-word"
+                key={`${word}-${index}`}
+                style={{ '--word-delay': `${index * 85}ms` }}
+              >
+                {word}
+              </span>
+            ))}
+          </h1>
           {Array.isArray(siteContent.hero.body) ? (
             siteContent.hero.body.map((p, i) => <p key={i}>{p}</p>)
           ) : (
@@ -29,8 +40,8 @@ function Hero() {
             <a className="button button-primary" href="#contact">
               Book a free discovery call <ArrowRight size={18} />
             </a>
-            <a className="button button-secondary" href="#package">
-              View birth support package
+            <a className="button button-secondary" href="#offerings">
+              View offerings
             </a>
           </div>
           <a className="hero-scroll" href="#philosophy" aria-label="Scroll to the next section">

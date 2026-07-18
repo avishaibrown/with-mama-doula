@@ -1,7 +1,7 @@
 import { siteContent } from '../../data/content.js'
 
 function Services() {
-  const service = siteContent.services[0]
+  const service = siteContent.whoIWorkWith[0]
   const movingItems = [...service.items, ...service.items]
 
   return (
@@ -39,8 +39,6 @@ function Services() {
             </span>
           ))}
         </div>
-
-        <p className="support-note">{service.body}</p>
       </div>
     </section>
   )

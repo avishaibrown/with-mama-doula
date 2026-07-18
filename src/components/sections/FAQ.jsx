@@ -4,7 +4,7 @@ function FAQ() {
   return (
     <section className="section faq-section" id="faq">
       <div className="container faq-grid">
-        <div>
+        <div className="faq-intro">
           <span className="eyebrow">FAQ</span>
           <h2>Questions before the first conversation.</h2>
         </div>

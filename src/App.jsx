@@ -6,8 +6,7 @@ import Hero from './components/sections/Hero.jsx'
 import Philosophy from './components/sections/Philosophy.jsx'
 import Services from './components/sections/Services.jsx'
 import BirthSettings from './components/sections/BirthSettings.jsx'
-import Process from './components/sections/Process.jsx'
-import About from './components/sections/About.jsx'
+import Qualifications from './components/sections/Qualifications.jsx'
 import Package from './components/sections/Package.jsx'
 import FAQ from './components/sections/FAQ.jsx'
 import Contact from './components/sections/Contact.jsx'
@@ -21,8 +20,7 @@ function App() {
         <Philosophy />
         <Services />
         <BirthSettings />
-        <Process />
-        <About />
+        <Qualifications />
         <Package />
         <FAQ />
         <Contact />
