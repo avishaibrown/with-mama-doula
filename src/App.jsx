@@ -1,31 +1,51 @@
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/react'
-import Navigation from './components/common/Navigation.jsx'
-import Footer from './components/common/Footer.jsx'
-import Hero from './components/sections/Hero.jsx'
-import Philosophy from './components/sections/Philosophy.jsx'
-import Services from './components/sections/Services.jsx'
-import BirthSettings from './components/sections/BirthSettings.jsx'
-import Qualifications from './components/sections/Qualifications.jsx'
-import Package from './components/sections/Package.jsx'
-import FAQ from './components/sections/FAQ.jsx'
-import Contact from './components/sections/Contact.jsx'
+import SiteHeader from './components/layout/site-header.jsx'
+import SiteFooter from './components/layout/site-footer.jsx'
+import HeroSection from './sections/hero-section.jsx'
+import PhilosophySection from './sections/philosophy-section.jsx'
+import SupportSection from './sections/support-section.jsx'
+import MichelleSection from './sections/michelle-section.jsx'
+import QualificationsSection from './sections/qualifications-section.jsx'
+import OfferingsSection from './sections/offerings-section.jsx'
+import FaqSection from './sections/faq-section.jsx'
+import ContactSection from './sections/contact-section.jsx'
+import LegalPage from './pages/legal-page.jsx'
+
+const LEGAL_PATHS = {
+  '/privacy-policy': 'privacy',
+  '/terms': 'terms',
+}
 
 function App() {
+  const path = window.location.pathname.replace(/\/$/, '') || '/'
+  const legalPage = LEGAL_PATHS[path]
+
+  if (legalPage) {
+    return (
+      <>
+        <LegalPage page={legalPage} />
+        <SiteFooter />
+        <Analytics />
+        <SpeedInsights />
+      </>
+    )
+  }
+
   return (
     <>
-      <Navigation />
+      <SiteHeader />
       <main>
-        <Hero />
-        <Philosophy />
-        <Services />
-        <BirthSettings />
-        <Qualifications />
-        <Package />
-        <FAQ />
-        <Contact />
+        <HeroSection />
+        <PhilosophySection />
+        <SupportSection />
+        <MichelleSection />
+        <QualificationsSection />
+        <OfferingsSection />
+        <FaqSection />
+        <ContactSection />
       </main>
-      <Footer />
+      <SiteFooter />
       <Analytics />
       <SpeedInsights />
     </>
