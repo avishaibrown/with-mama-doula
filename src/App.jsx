@@ -24,6 +24,7 @@ function App() {
   if (legalPage) {
     return (
       <>
+        <SiteHeader />
         <LegalPage page={legalPage} />
         <SiteFooter />
         <Analytics />
