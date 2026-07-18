@@ -9,7 +9,6 @@ export const siteContent = {
   nav: [
     { label: "Support", href: "#support" },
     { label: "Michelle", href: "#michelle" },
-    { label: "Qualifications", href: "#qualifications" },
     { label: "Offerings", href: "#offerings" },
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "#contact" },

@@ -4,11 +4,15 @@ import { useState } from 'react'
 
 function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false)
+  const isLegalPage = typeof window !== 'undefined' && window.location.pathname !== '/'
+  const homeHref = isLegalPage ? '/#top' : '#top'
+
+  const getNavHref = (href) => (isLegalPage ? `/${href}` : href)
 
   return (
     <header className="nav">
       <div className="container nav-inner">
-        <a className="brand" href="#top" aria-label={`${siteContent.brand.name} home`}>
+        <a className="brand" href={homeHref} aria-label={`${siteContent.brand.name} home`}>
           <img
             className="brand-logo"
             src="/images/branding/with-mama-logo.png"
@@ -20,7 +24,7 @@ function SiteHeader() {
         <div className="nav-desktop">
           <nav className="nav-links" aria-label="Primary navigation">
             {siteContent.nav.map((item) => (
-              <a key={item.href} href={item.href}>
+              <a key={item.href} href={getNavHref(item.href)}>
                 {item.label}
               </a>
             ))}
@@ -40,7 +44,11 @@ function SiteHeader() {
           {isOpen ? (
             <nav className="nav-mobile-menu" id="mobile-nav" aria-label="Mobile navigation">
               {siteContent.nav.map((item) => (
-                <a key={item.href} href={item.href} onClick={() => setIsOpen(false)}>
+                <a
+                  key={item.href}
+                  href={getNavHref(item.href)}
+                  onClick={() => setIsOpen(false)}
+                >
                   {item.label}
                 </a>
               ))}
