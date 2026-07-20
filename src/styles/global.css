@@ -476,6 +476,7 @@ h3 { font-family: var(--label); font-size: 1.05rem; font-weight: 700; letter-spa
   color: var(--ink);
   font-size: 1.18rem;
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .highlighter {
@@ -490,7 +491,9 @@ h3 { font-family: var(--label); font-size: 1.05rem; font-weight: 700; letter-spa
   border-bottom: 2px solid color-mix(in srgb, var(--highlighter-color, var(--brass)) 90%, white 10%);
   border-radius: 0.12em;
   display: inline;
+  overflow-wrap: anywhere;
   padding: 0 0.03em;
+  --highlight-progress: 100%;
 }
 
 .highlighter-underline {
@@ -504,9 +507,16 @@ h3 { font-family: var(--label); font-size: 1.05rem; font-weight: 700; letter-spa
     color-mix(in srgb, var(--highlighter-color, var(--clay)) 72%, var(--paper) 28%) 94%,
     transparent 94%
   );
+  background-repeat: no-repeat;
+  background-size: var(--highlight-progress) 100%;
   border-bottom: 0;
   border-radius: 0.18em;
   padding: 0.02em 0.08em;
+  transition: background-size 120ms linear;
+}
+
+.highlighter-scroll {
+  --highlight-progress: 0%;
 }
 
 .philosophy-copy p {
@@ -640,10 +650,10 @@ blockquote {
 .qualifications-badge {
   display: block;
   height: auto;
-  max-width: 164px;
+  max-width: 144px;
   animation: badge-spin 18s linear infinite;
   transform-origin: center center;
-  width: min(164px, 42vw);
+  width: min(144px, 42vw);
 }
 
 .qualifications-affiliations {
@@ -683,8 +693,8 @@ blockquote {
 }
 
 .qualification-affiliation-badge {
-  justify-items: start;
-  padding-left: 22px;
+  justify-items: center;
+  padding-inline: 18px;
 }
 
 .qualification-affiliation-text-only {
@@ -693,9 +703,9 @@ blockquote {
 }
 
 .qualification-affiliation-badge img {
-  max-height: 128px;
-  max-width: 128px;
-  width: 128px;
+  max-height: 144px;
+  max-width: 144px;
+  width: 144px;
 }
 
 .qualifications-expectations {
@@ -815,12 +825,19 @@ blockquote {
   }
 
   .qualifications-badge {
-    max-width: 260px;
-    width: min(260px, 76vw);
+    max-height: 144px;
+    max-width: 144px;
+    width: min(144px, 76vw);
   }
 
   .qualification-affiliation img {
     max-height: 64px;
+  }
+
+  .qualification-affiliation-badge img {
+    max-height: 144px;
+    max-width: 144px;
+    width: min(144px, 76vw);
   }
 
   .qualification-affiliation-text-only p {
@@ -1053,9 +1070,10 @@ blockquote {
 }
 
 .contact-image-panel {
-  border-radius: 32px;
+  aspect-ratio: 1;
+  border-radius: 50%;
   overflow: hidden;
-  min-height: 760px;
+  min-height: auto;
 }
 
 .contact-image-panel picture {
@@ -1066,7 +1084,7 @@ blockquote {
 .contact-image-panel img {
   display: block;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
   width: 100%;
 }
@@ -1546,7 +1564,22 @@ blockquote {
   .philosophy-intro h2 {
     font-size: clamp(3rem, 11vw, 4.2rem);
     max-width: none;
-    white-space: nowrap;
+    overflow-wrap: normal;
+    white-space: normal;
+  }
+
+  .philosophy-intro,
+  .philosophy-copy,
+  .philosophy-lead,
+  .philosophy-copy p,
+  .philosophy-benefits li,
+  .philosophy-line {
+    max-width: 100%;
+  }
+
+  .philosophy-copy p,
+  .philosophy-benefits li {
+    overflow-wrap: break-word;
   }
 
   .nav-inner {
@@ -1555,14 +1588,19 @@ blockquote {
 
   .hero-section {
     align-items: center;
-    margin-inline: calc(50% - 50vw);
+    left: 50%;
+    margin-left: -50vw;
+    margin-left: -50dvw;
+    margin-right: 0;
+    overflow: clip;
     padding: 0;
     width: 100vw;
+    width: 100dvw;
   }
 
   .hero-media {
     inset: 0;
-    width: 100vw;
+    width: auto;
   }
 
   .hero-media img {
@@ -1727,6 +1765,7 @@ blockquote {
 
   .faq-grid {
     align-items: start;
+    column-gap: clamp(5rem, 9vw, 8rem);
     grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
   }
 
@@ -1750,11 +1789,13 @@ blockquote {
   .nav-mobile { display: none; }
 
   .contact-layout {
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: center;
+    grid-template-columns: minmax(22rem, 0.85fr) minmax(0, 1.15fr);
   }
 
   .contact-image-panel {
-    min-height: 760px;
+    justify-self: start;
+    width: min(100%, 38rem);
   }
 
   .contact-content,

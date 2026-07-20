@@ -23,7 +23,7 @@ function PhilosophySection() {
             {siteContent.philosophy.philosophyPoints.map((line) => (
               <p key={line} className="philosophy-line">
                 {line.includes('The doula protects the conditions in which birth unfolds') ? (
-                  <Highlighter action="highlight" color="#C9A8A0">
+                  <Highlighter action="highlight" color="#C9A8A0" revealOnScroll>
                     {line}
                   </Highlighter>
                 ) : (

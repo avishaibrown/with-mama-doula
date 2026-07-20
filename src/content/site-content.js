@@ -77,7 +77,7 @@ export const siteContent = {
     affiliations: [
       {
         logo: "/images/branding/doula-network-badge.png",
-        label: "Doula Network Australia",
+        label: "Member of Doula Network Australia",
       },
       {
         logo: "",

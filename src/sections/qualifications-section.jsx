@@ -52,6 +52,7 @@ function QualificationsSection() {
                   loading="lazy"
                   decoding="async"
                 />
+                <p>{qualifications.affiliations[0].label}</p>
               </div>
               {qualifications.affiliations.slice(1).map((item) => (
                 <article
