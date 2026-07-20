@@ -34,7 +34,7 @@ function HeroSection() {
               View offerings
             </a>
           </div>
-          <a className="hero-scroll" href="#philosophy" aria-label="Scroll to the next section">
+          <a className="hero-scroll" href="#michelle" aria-label="Scroll to the next section">
             <ChevronDown size={22} />
           </a>
         </div>

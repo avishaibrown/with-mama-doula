@@ -7,8 +7,8 @@ export const siteContent = {
     practitioner: "Michelle",
   },
   nav: [
-    { label: "Support", href: "#support" },
     { label: "About Michelle", href: "#michelle" },
+    { label: "Support", href: "#support" },
     { label: "Offerings", href: "#offerings" },
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "#contact" },
@@ -20,8 +20,8 @@ export const siteContent = {
     ],
   },
   philosophy: {
-    eyebrow: "Why have me as your doula?",
-    title: "Feel safe, calm and confident in pregnancy and birth",
+    eyebrow: "Support",
+    title: "Why doula support matters",
     intro: "I provide continuous support in labour to increase your chance of:",
     benefits: [
       "Avoiding unnecessary interventions",
@@ -153,7 +153,7 @@ export const siteContent = {
       },
     ],
     priceTitle: "Birth Support Package",
-    price: "$1,080",
+    price: "$1,260",
     note: "Payment can be made in instalments, with a booking deposit required to secure your place. We can discuss a payment plan that feels comfortable for you.",
     extraNote:
       "A sliding scale is available, please contact me to find out more.",

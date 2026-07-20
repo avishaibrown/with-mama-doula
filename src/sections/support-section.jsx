@@ -5,7 +5,7 @@ function SupportSection() {
   const movingItems = [...support.items, ...support.items]
 
   return (
-    <section className="section" id="support">
+    <section className="section" id="birth-choices">
       <div className="container">
         <div className="section-heading section-heading-full">
           <span className="eyebrow">{support.eyebrow}</span>

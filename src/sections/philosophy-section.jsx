@@ -3,7 +3,7 @@ import { siteContent } from '../content/site-content.js'
 
 function PhilosophySection() {
   return (
-    <section className="section philosophy-section" id="philosophy">
+    <section className="section philosophy-section" id="support">
       <div className="container philosophy-stack">
         <div className="philosophy-intro">
           <span className="eyebrow">{siteContent.philosophy.eyebrow}</span>
@@ -22,8 +22,10 @@ function PhilosophySection() {
           <div className="philosophy-lines">
             {siteContent.philosophy.philosophyPoints.map((line) => (
               <p key={line} className="philosophy-line">
-                {line === 'The doula protects the conditions in which birth unfolds' ? (
-                  <Highlighter action="underline">{line}</Highlighter>
+                {line.includes('The doula protects the conditions in which birth unfolds') ? (
+                  <Highlighter action="highlight" color="#C9A8A0">
+                    {line}
+                  </Highlighter>
                 ) : (
                   line
                 )}

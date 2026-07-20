@@ -84,7 +84,7 @@ h1 { font-weight: 600; }
   display: block;
 }
 
-h2 { font-size: clamp(2.5rem, 5.8vw, 5.6rem); max-width: 10.5ch; }
+h2 { font-size: clamp(2.5rem, 5.8vw, 5.6rem); max-width: none; }
 h3 { font-family: var(--label); font-size: 1.05rem; font-weight: 700; letter-spacing: 0.04em; line-height: 1.35; text-transform: uppercase; }
 
 .container {
@@ -345,18 +345,8 @@ h3 { font-family: var(--label); font-size: 1.05rem; font-weight: 700; letter-spa
   grid-column: 1;
 }
 
-.section-heading-full h2 {
-  max-width: 16ch;
-}
-
 .section-heading-full p {
   max-width: 72ch;
-}
-
-@media (min-width: 861px) {
-  .section-heading-full h2 {
-    max-width: 18ch;
-  }
 }
 .support-intro {
   color: var(--ink);
@@ -509,11 +499,14 @@ h3 { font-family: var(--label); font-size: 1.05rem; font-weight: 700; letter-spa
 
 .highlighter-highlight {
   background: linear-gradient(
-    transparent 18%,
-    color-mix(in srgb, var(--highlighter-color, var(--brass)) 82%, white 18%) 18%,
-    color-mix(in srgb, var(--highlighter-color, var(--brass)) 82%, white 18%) 92%,
-    transparent 92%
+    transparent 8%,
+    color-mix(in srgb, var(--highlighter-color, var(--clay)) 72%, var(--paper) 28%) 8%,
+    color-mix(in srgb, var(--highlighter-color, var(--clay)) 72%, var(--paper) 28%) 94%,
+    transparent 94%
   );
+  border-bottom: 0;
+  border-radius: 0.18em;
+  padding: 0.02em 0.08em;
 }
 
 .philosophy-copy p {
@@ -544,62 +537,58 @@ blockquote {
 }
 
 .michelle-section {
-  background-image:
-    linear-gradient(rgba(59, 64, 50, 0.28), rgba(59, 64, 50, 0.28)),
-    url('/images/michelle/michelle-1600.jpg');
-  background-attachment: fixed;
-  background-position: center 24%;
-  background-size: cover;
-  color: var(--white);
+  background:
+    linear-gradient(180deg, rgba(255, 250, 242, 0.72), rgba(247, 241, 232, 0.96)),
+    var(--paper);
+  color: var(--ink);
 }
 
 .michelle-section .container {
-  width: min(1800px, calc(100% - 24px));
+  width: min(1180px, calc(100% - (var(--container-gutter) * 2)));
 }
-
-@media (min-width: 861px) and (min-resolution: 1.5dppx) {
-  .michelle-section {
-    background-image:
-      linear-gradient(rgba(59, 64, 50, 0.28), rgba(59, 64, 50, 0.28)),
-      url('/images/michelle/michelle-2200.jpg');
-    background-position: center 24%;
-  }
-}
-
-  .michelle-section h2,
-  .michelle-section p,
-  .michelle-section .eyebrow,
-  .michelle-section h3 {
-    color: var(--white);
-  }
 
 .michelle-layout {
+  align-items: center;
   display: grid;
-  gap: 42px;
+  gap: var(--section-gap);
+  grid-template-columns: 1fr;
+}
+
+.michelle-portrait {
+  aspect-ratio: 4 / 5;
+  border-radius: 28px;
+  box-shadow: 0 26px 64px rgba(90, 70, 56, 0.16);
+  display: block;
+  min-height: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.michelle-portrait img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+  width: 100%;
 }
 
 .michelle-intro {
   display: grid;
-  gap: 16px;
-  max-width: 100ch;
+  gap: 18px;
+  max-width: 42rem;
 }
 
 .michelle-intro h2 {
-  font-size: clamp(3.3rem, 5vw, 6rem);
+  font-size: clamp(3rem, 8vw, 5.4rem);
   line-height: 0.95;
-  max-width: 100ch;
+  max-width: none;
 }
 
-.michelle-title-lead {
-  display: block;
-}
-
-.michelle-title-body {
-  display: block;
-  font-size: 0.64em;
-  line-height: 1.16;
-  margin-top: 0.16em;
-  max-width: 16ch;
+.michelle-intro p {
+  color: var(--ink);
+  font-size: clamp(1.18rem, 1vw + 1rem, 1.5rem);
+  line-height: 1.58;
+  max-width: 38rem;
 }
 
 .qualifications-section {
@@ -768,15 +757,16 @@ blockquote {
 
 @media (min-width: 861px) {
   .michelle-layout {
-    grid-template-columns: minmax(340px, 0.84fr) minmax(0, 1.16fr);
-    column-gap: clamp(180px, 18vw, 300px);
-    align-items: start;
+    grid-template-columns: minmax(18rem, 0.82fr) minmax(0, 1fr);
+    column-gap: clamp(3rem, 8vw, 7rem);
+  }
+
+  .michelle-portrait {
+    max-height: 44rem;
   }
 
   .michelle-intro {
-    grid-row: 1 / span 2;
-    position: sticky;
-    top: 120px;
+    align-self: center;
   }
 
   .qualifications-layout {
@@ -805,15 +795,18 @@ blockquote {
 }
 
 @media (max-width: 860px) {
-  .qualifications-affiliations,
   .expectation-list {
     grid-template-columns: 1fr;
   }
 
+  .qualifications-affiliations {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .qualification-affiliation-badge {
-    grid-column: auto;
+    grid-column: 1 / -1;
     justify-items: center;
-    padding-left: 16px;
+    padding: 26px 16px;
   }
 
   .qualification-affiliation-text-only {
@@ -822,8 +815,8 @@ blockquote {
   }
 
   .qualifications-badge {
-    max-width: 220px;
-    width: min(220px, 70vw);
+    max-width: 260px;
+    width: min(260px, 76vw);
   }
 
   .qualification-affiliation img {
@@ -831,7 +824,7 @@ blockquote {
   }
 
   .qualification-affiliation-text-only p {
-    font-size: 1rem;
+    font-size: clamp(0.82rem, 3.4vw, 1rem);
   }
 
   .expectation-card {
@@ -904,6 +897,51 @@ blockquote {
 
 .offering-label {
   color: var(--ink);
+}
+
+.offering-details {
+  border-top: 1px solid rgba(59, 64, 50, 0.12);
+  display: grid;
+  gap: 14px;
+  margin-top: 4px;
+  padding-top: 6px;
+}
+
+.offering-details summary {
+  align-items: center;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  font-family: var(--label);
+  font-size: 0.98rem;
+  font-weight: 700;
+  gap: 1rem;
+  justify-content: space-between;
+  letter-spacing: 0.04em;
+  list-style: none;
+  min-height: 3.25rem;
+  text-transform: uppercase;
+}
+
+.offering-details summary::marker {
+  content: '';
+  font-size: 0;
+}
+
+.offering-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.offering-chevron {
+  align-items: center;
+  color: var(--olive);
+  display: inline-flex;
+  flex: 0 0 auto;
+  transition: transform 180ms ease;
+}
+
+.offering-details[open] .offering-chevron {
+  transform: rotate(180deg);
 }
 
 .offering-list {
@@ -1202,7 +1240,7 @@ blockquote {
   align-items: center;
   display: inline-flex;
   font-family: var(--heading);
-  font-size: clamp(1.2rem, 1.7vw, 1.5rem);
+  font-size: clamp(1.45rem, 2vw, 1.85rem);
   gap: 0.8rem;
   justify-content: center;
 }
@@ -1365,27 +1403,54 @@ blockquote {
     object-position: center 30%;
   }
   .contact-layout {
-    gap: 28px;
+    gap: clamp(2rem, 5vw, 3rem);
     grid-template-columns: 1fr;
-    max-width: 900px;
+    max-width: 760px;
   }
 
   .contact-image-panel {
-    min-height: 360px;
+    border-radius: 26px;
+    min-height: clamp(18rem, 42vw, 28rem);
   }
 
   .contact-content {
     justify-items: center;
+    gap: clamp(1.5rem, 4vw, 2.25rem);
   }
 
   .contact-intro h2 {
-    max-width: 14ch;
+    font-size: clamp(3.5rem, 9vw, 5.6rem);
+    max-width: 11ch;
+  }
+
+  .contact-intro p {
+    max-width: 34rem;
   }
 
   .contact-intro,
   .contact-form {
     justify-items: center;
     text-align: center;
+  }
+
+  .contact-form {
+    background: rgba(255, 250, 242, 0.42);
+    border: 1px solid rgba(59, 64, 50, 0.08);
+    border-radius: 28px;
+    box-shadow: 0 18px 48px rgba(90, 70, 56, 0.08);
+    max-width: 100%;
+    padding: clamp(1.5rem, 4vw, 2.25rem);
+    width: 100%;
+  }
+
+  .form-row {
+    justify-items: stretch;
+    text-align: left;
+    width: 100%;
+  }
+
+  .form-row label {
+    font-size: 0.98rem;
   }
 
   .contact-submit {
@@ -1395,9 +1460,12 @@ blockquote {
 }
 
 @media (max-width: 860px) {
-  .michelle-section {
-    /* Fixed backgrounds are costly to repaint on touch devices. */
-    background-attachment: scroll;
+  .michelle-intro {
+    order: 1;
+  }
+
+  .michelle-portrait {
+    order: 2;
   }
 
   .offerings-span-7,
@@ -1441,9 +1509,10 @@ blockquote {
   }
 
   .contact-form {
-    margin-inline: calc(50% - 50vw);
-    padding-inline: clamp(1rem, 5vw, 1.5rem);
-    width: 100vw;
+    border-radius: 22px;
+    margin-inline: 0;
+    padding: clamp(1rem, 5vw, 1.35rem);
+    width: 100%;
   }
 
   .contact-form,
@@ -1472,6 +1541,12 @@ blockquote {
   .section-heading {
     display: grid;
     margin-bottom: var(--section-gap);
+  }
+
+  .philosophy-intro h2 {
+    font-size: clamp(3rem, 11vw, 4.2rem);
+    max-width: none;
+    white-space: nowrap;
   }
 
   .nav-inner {
@@ -1521,9 +1596,16 @@ blockquote {
   }
 
   .bento-grid,
-  .qualifications-affiliations,
   .expectation-list {
     grid-template-columns: 1fr;
+  }
+
+  .qualifications-affiliations {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .qualification-affiliation-badge {
+    grid-column: 1 / -1;
   }
 
   .bento-card,
@@ -1608,6 +1690,10 @@ blockquote {
 }
 
 @media (max-width: 480px) {
+  .qualifications-affiliations {
+    grid-template-columns: 1fr;
+  }
+
   .hero-actions .button {
     width: 100%;
   }
@@ -1675,13 +1761,6 @@ blockquote {
   .contact-intro {
     justify-items: end;
     text-align: right;
-  }
-}
-
-/* iOS Safari repaints fixed backgrounds poorly during scroll. */
-@supports (-webkit-touch-callout: none) {
-  .michelle-section {
-    background-attachment: scroll;
   }
 }
 

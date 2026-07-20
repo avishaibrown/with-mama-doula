@@ -38,9 +38,9 @@ function App() {
       <SiteHeader />
       <main>
         <HeroSection />
+        <MichelleSection />
         <PhilosophySection />
         <SupportSection />
-        <MichelleSection />
         <QualificationsSection />
         <OfferingsSection />
         <FaqSection />

@@ -1,4 +1,4 @@
-import { Check } from 'lucide-react'
+import { Check, ChevronDown } from 'lucide-react'
 import { siteContent } from '../content/site-content.js'
 import { BentoCard, BentoGrid } from '../components/ui/bento-grid.jsx'
 
@@ -23,15 +23,20 @@ function OfferingsSection() {
               {section.body.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
-              <h3 className="offering-label">{section.label}</h3>
-              <ul className="offering-list">
-                {section.items.map((item) => (
-                  <li key={item}>
-                    <Check size={18} aria-hidden="true" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <details className="offering-details">
+                <summary>
+                  <span>{section.label}</span>
+                  <ChevronDown className="offering-chevron" size={22} aria-hidden="true" />
+                </summary>
+                <ul className="offering-list">
+                  {section.items.map((item) => (
+                    <li key={item}>
+                      <Check size={18} aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </details>
             </BentoCard>
           ))}
 
