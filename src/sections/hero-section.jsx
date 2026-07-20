@@ -2,8 +2,6 @@ import { ArrowRight, ChevronDown } from 'lucide-react'
 import { siteContent } from '../content/site-content.js'
 
 function HeroSection() {
-  const heroWords = siteContent.hero.title.split(' ')
-
   return (
     <section className="hero-section" id="top">
       <picture className="hero-media">
@@ -22,17 +20,7 @@ function HeroSection() {
       </picture>
       <div className="container hero-grid">
         <div className="hero-copy">
-          <h1 className="hero-title" aria-label={siteContent.hero.title}>
-            {heroWords.map((word, index) => (
-              <span
-                className="hero-title-word"
-                key={`${word}-${index}`}
-                style={{ '--word-delay': `${index * 85}ms` }}
-              >
-                {word}
-              </span>
-            ))}
-          </h1>
+          <h1 className="hero-title">{siteContent.hero.title}</h1>
           {Array.isArray(siteContent.hero.body) ? (
             siteContent.hero.body.map((p, i) => <p key={i}>{p}</p>)
           ) : (
@@ -40,7 +28,7 @@ function HeroSection() {
           )}
           <div className="hero-actions" aria-label="Primary actions">
             <a className="button button-primary" href="#contact">
-              Book a free discovery call <ArrowRight size={18} />
+              Book a connection call <ArrowRight size={18} />
             </a>
             <a className="button button-secondary" href="#offerings">
               View offerings

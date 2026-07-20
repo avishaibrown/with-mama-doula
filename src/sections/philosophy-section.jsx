@@ -1,3 +1,4 @@
+import Highlighter from '../components/ui/highlighter.jsx'
 import { siteContent } from '../content/site-content.js'
 
 function PhilosophySection() {
@@ -21,7 +22,11 @@ function PhilosophySection() {
           <div className="philosophy-lines">
             {siteContent.philosophy.philosophyPoints.map((line) => (
               <p key={line} className="philosophy-line">
-                {line}
+                {line === 'The doula protects the conditions in which birth unfolds' ? (
+                  <Highlighter action="underline">{line}</Highlighter>
+                ) : (
+                  line
+                )}
               </p>
             ))}
           </div>

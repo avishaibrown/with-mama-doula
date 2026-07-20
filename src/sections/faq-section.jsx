@@ -1,3 +1,4 @@
+import { ChevronDown } from 'lucide-react'
 import { siteContent } from '../content/site-content.js'
 
 function FaqSection() {
@@ -11,7 +12,10 @@ function FaqSection() {
         <div className="faq-list">
           {siteContent.faq.map((item) => (
             <details key={item.question}>
-              <summary>{item.question}</summary>
+              <summary>
+                <span>{item.question}</span>
+                <ChevronDown className="faq-chevron" size={24} aria-hidden="true" />
+              </summary>
               <p>{item.answer}</p>
             </details>
           ))}

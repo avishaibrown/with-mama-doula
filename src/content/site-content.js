@@ -8,7 +8,7 @@ export const siteContent = {
   },
   nav: [
     { label: "Support", href: "#support" },
-    { label: "Michelle", href: "#michelle" },
+    { label: "About Michelle", href: "#michelle" },
     { label: "Offerings", href: "#offerings" },
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "#contact" },
@@ -16,8 +16,7 @@ export const siteContent = {
   hero: {
     title: "Walking beside you as you step into motherhood",
     body: [
-      "Evidence-informed doula support for pregnancy, birth and postpartum.",
-      "Supporting women in Melbourne to feel safe, informed and deeply held throughout the transition into motherhood.",
+      "Evidence-informed doula support for pregnancy, birth and postpartum in Melbourne.",
     ],
   },
   philosophy: {
@@ -33,8 +32,8 @@ export const siteContent = {
     philosophyLead:
       "Inspired by Michel Odent's philosophy of 'para mama' - being with the mother.",
     philosophyPoints: [
-      "The mother gives birth",
-      "The doula protects the conditions in which birth unfolds",
+      "The mother gives birth.",
+      "The doula protects the conditions in which birth unfolds.",
     ],
     body: [
       "Dr. Michel Odent M.D. believed that those around the mother should protect her privacy, reduce stimulation, avoid directing or coaching, create safety, and remain quietly present.",
@@ -45,7 +44,8 @@ export const siteContent = {
   },
   support: {
     eyebrow: "Who I work with",
-    title: "However and wherever you choose to give birth, my role is to support you.",
+    title:
+      "However and wherever you choose to give birth, my role is to support you.",
     intro: "I support women planning:",
     items: [
       "Home birth",
@@ -155,7 +155,8 @@ export const siteContent = {
     priceTitle: "Birth Support Package",
     price: "$1,080",
     note: "Payment can be made in instalments, with a booking deposit required to secure your place. We can discuss a payment plan that feels comfortable for you.",
-    extraNote: "A sliding scale is available, please contact me to find out more.",
+    extraNote:
+      "A sliding scale is available, please contact me to find out more.",
   },
   faq: [
     {
@@ -199,7 +200,8 @@ export const siteContent = {
         "I currently support families in Melbourne’s South East suburbs and surrounding areas. Please get in touch to discuss your location.",
     },
     {
-      question: "What happens if you are supporting another birth when I go into labour?",
+      question:
+        "What happens if you are supporting another birth when I go into labour?",
       answer:
         "As part of my commitment to continuity of care, I have a trusted backup arrangement in place. If I am unexpectedly unavailable, your backup doula will provide support with the same care and respect.",
     },
